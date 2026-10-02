@@ -1,0 +1,9 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body{font-family:Inter,system-ui,sans-serif}
+.font-elegan{font-family:Inter,sans-serif}
+.font-alay{font-family:'Comic Sans MS',cursive;letter-spacing:0.5px}
+.font-klasik{font-family:'Times New Roman',serif}
+.font-manula{font-size:19px;font-weight:700;line-height:1.7}
