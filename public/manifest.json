@@ -1,14 +1,20 @@
 {
-  "name": "DompetKu AI - Daftar Isi Praktis",
-  "short_name": "DompetKu AI",
-  "description": "APK Google - Daftar langsung ada isinya, praktis!",
+  "name": "DompetKu AI",
+  "short_name": "DompetKu",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
-  "icons": [{
-    "src": "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
-    "sizes": "512x512",
-    "type": "image/png"
-  }]
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }
