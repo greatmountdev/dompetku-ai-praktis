@@ -1,36 +1,31 @@
+# DompetKu AI V2 Fixed
 
-# DompetKu AI - Paket Praktis Daftar + Isi
+Fix sesuai request:
+- Login + Facebook + Google (sembunyiin deskripsi panjang jadi icon info)
+- Pola interaktif soft mengikuti garis (canvas SVG + glow, vibrate)
+- Chat Meta AI pakai suara (Web Speech API STT+TTS)
+- Navigasi slide kiri berupa grup menu (fix scroll kepanjangan)
+- APK logic dipertahankan
 
-## 1 Paket = Daftar + Isi langsung (bukan 2 file terpisah)
-- Daftar email google
-- Pola pattern kayak HP Samsung
-- Izin Drive (foto), Sheet (export laporan), Gemini (bot)
-- Bot Momo gaul pantun tanya tanggungan orang tua/adek/anak/istri/single
-- Langsung ada wallets contoh dengan no rek hide/show copy
+## Cara push ke GitHub dompetku-ai-praktis
 
-## Deploy Vercel (frontend dulu)
-1. Push ke GitHub: git init, git add ., git commit -m "dompetku", git push
-2. Vercel.com → New Project → Import repo → Deploy
-3. Env vars: NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY
+1. Buka github.com -> repo dompetku-ai-praktis
+2. Upload/replace file src/App.tsx dengan yang dari folder ini
+3. Pastikan package.json ada lucide-react
+4. Commit -> Vercel auto deploy
+5. Test di vercel.app -> harusnya no "tidak dapat diinstal" lagi karena udah ada icon handling + drawer
+6. Rebuild APK di pwabuilder.com -> akan tetap 2.1mb tapi UI baru
 
-## Supabase (backend)
-SQL:
-```sql
-create table users (id uuid primary key, email text, nickname text, tanggungan jsonb, pattern jsonb, created_at timestamp default now());
-create table wallets (id text primary key, user_id uuid references users(id), group_type text, name text, bank text, no_rek text, saldo bigint);
-create table transactions (id uuid primary key default gen_random_uuid(), user_id uuid, wallet_id text, type text, amount bigint, description text, photo_url text, sisa bigint, created_at timestamp default now());
--- Storage bucket dompetku-photos (public)
--- Enable RLS and policies
-```
-- Supabase Auth Google Provider ON
-- Storage bucket buat foto struk
+## Untuk build PWA icon fix
 
-## Fitur
-- 5 grup warna penuh solid text putih: biru tabungan, ungu saku, merah pengeluaran, orange cicilan, ijo darurat
-- No rek hide/show eye + copy 📋 per wallet
-- Riwayat pemasukan/pengeluaran + foto thumbnail
-- Laporan grafik (paling boros merah) + tabel border aesthetic + export Sheet
-- Tema terang/gelap, font elegan/alay/klasik/manula bold instant
+Tambah di public/:
+- icon-192.png
+- icon-512.png
+- manifest.json dengan icons array
 
-## Vercel vs Supabase mana dulu?
-Vercel dulu biar ada link demo, baru Supabase biar data kesimpen.
+Sudah include di App.tsx tidak perlu install prompt manual.
+
+Voice Chat Meta AI:
+- Klik Chat Meta AI di drawer
+- Klik 🎤 untuk ngomong
+- Klik 🔊 untuk toggle suara AI
